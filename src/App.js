@@ -1,25 +1,24 @@
-import logo from './logo.svg';
+import Fade from 'react-reveal/Fade';
+import axios from 'axios';
 import './App.css';
-
+import React, {useEffect, useState} from 'react';
+import reveal from 'reveal.js';
+import { Slide } from 'revealjs-react';
+import Select from 'react-select'
+import {Link} from 'react-router-dom';
+import {Routes, Route, BrowserRouter} from 'react-router-dom';
+import Section from './Section';
+import Page from './Page';
+import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "./Navigation/Navbar.js";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return(
+    <BrowserRouter>
+    <Routes>
+      <Route exact path='/' element={<Page />}/>
+      <Route path='/section' element={<Section />}/>
+    </Routes>
+    </BrowserRouter>
+  )
 }
-
 export default App;
